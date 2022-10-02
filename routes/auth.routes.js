@@ -37,12 +37,12 @@ router.get("/session", (req, res) => {
 
 //http://localhost:5005/api/auth/signup
 router.post("/signup", isLoggedOut, (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, name, lastName } = req.body;
 
-  if (!email) {
+  if (!email || !name || !lastName) {
     return res
       .status(400)
-      .json({ errorMessage: "Please provide your email." });
+      .json({ errorMessage: "Please enter all the fields" });
   }
 
   if (password.length < 8) {
@@ -79,6 +79,8 @@ router.post("/signup", isLoggedOut, (req, res) => {
         return User.create({
           email,
           password: hashedPassword,
+          name,
+          lastName,
         });
       })
       .then((user) => {
