@@ -15,9 +15,22 @@ router.get("/", (req, res) => {
 
 // http://localhost:5005/celulares/collection
 router.post("/collection", (req, res) => {
-    const { title, description, pickLocation, pickSchedule, postUntil } = req.body;
+    const { 
+        title, 
+        description, 
+        pickLocation, 
+        pickSchedule, 
+        postUntil,
+        collecType
+                    } = req.body;
 
-    if (!title || !description || !pickLocation || !pickSchedule || !postUntil) {
+    if (!title || 
+        !description || 
+        !pickLocation || 
+        !pickSchedule || 
+        !postUntil || 
+        !collecType
+        ) {
         return res
           .status(400)
           .json({ errorMessage: "Please enter all the fields" });
@@ -30,6 +43,7 @@ router.post("/collection", (req, res) => {
         pickLocation,
         pickSchedule,
         postUntil,
+        collecType,
         }
     )
 
