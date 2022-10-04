@@ -76,14 +76,14 @@ router.post("/signup", isLoggedOut, (req, res) => {
       .then((salt) => bcrypt.hash(password, salt))
       .then((hashedPassword) => {
         // Create a user and save it in the database
-        return User.create({
+        return User.create({//<--------------check this first
           email,
           password: hashedPassword,
           name,
           lastName,
         });
       })
-      .then((user) => {
+      .then((user) => {//<-------------------------start
         Session.create({
           user: user._id,
           createdAt: Date.now(),
