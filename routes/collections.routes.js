@@ -4,17 +4,12 @@ const mongoose = require("mongoose");
 
 const Collection = require("../models/Collection.model")
 
-//routerl.methodHTTP(path, ()  => {})
-
-router.get("/", (req, res) => {
-    res.json({ celulares: [1, 2, 3] })
-})
-
+//router.methodHTTP(path, ()  => {})
 
 //Route for add collection(object)
 
 // http://localhost:5005/celulares/collection
-router.post("/collection", (req, res) => {
+router.post("/addnew", (req, res) => {
     const { 
         title, 
         description, 
@@ -60,7 +55,7 @@ router.post("/collection", (req, res) => {
 //Route to get all the Collections
 
 // http://localhost:5005/celulares/getcol
-router.get("/getcol", (req, res) => {
+router.get("/getcols", (req, res) => {
     
     Collection.find()
         .then((collections) => {

@@ -20,9 +20,9 @@ const allRoutes = require("./routes/index.routes");
 app.use("/api", allRoutes);
 
 //Reg. de rutas
-const celulares = require("./routes/celulares.routes")
-//localhost:5005/celulares
-app.use("/celulares", celulares)
+const collections = require("./routes/collections.routes")
+//localhost:5005/collections
+app.use("/collections", collections)
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
