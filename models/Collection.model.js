@@ -22,6 +22,9 @@ const collectionSchema = new Schema(
       collecType: {
         type: String,
       },
+      imageUrl: {
+        type: String,
+      },
     },
     {
       // this second object adds extra properties: `createdAt` and `updatedAt`
