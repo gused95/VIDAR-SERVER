@@ -36,6 +36,7 @@ router.post("/addnew", (req, res) => {
         postUntil,
         collecType,
         imageUrl,
+        price,
                     } = req.body;
 
     if (!title || 
@@ -60,6 +61,7 @@ router.post("/addnew", (req, res) => {
         postUntil,
         collecType,
         imageUrl,
+        price,
         }
     )
 
